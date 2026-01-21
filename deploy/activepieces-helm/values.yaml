@@ -127,25 +127,25 @@ activepieces:
   # ============================================================================
   # REQUIRED: Core configuration that must be set for production deployment
   # ============================================================================
-  
+
   # The URL where Activepieces will be accessible (e.g., https://activepieces.yourdomain.com)
   frontendUrl: "http://localhost:4200"
-  
+
   # Edition: ce (Community) or ee (Enterprise)
   # Community Edition (ce) is the default open-source version
   edition: "ce"
-  
+
   # Execution mode for flows - see: https://www.activepieces.com/docs/install/architecture/workers
   # Options: SANDBOX_CODE_ONLY, UNSANDBOXED
   executionMode: "SANDBOX_CODE_ONLY"
-  
+
   # Environment: prod or dev
   environment: "prod"
-  
+
   # ============================================================================
   # OPTIONAL: Additional configuration (defaults are usually sufficient)
   # ============================================================================
-  
+
   telemetryEnabled: true
   templatesSourceUrl: "https://cloud.activepieces.com/api/v1/templates"
   flowWorkerConcurrency: ""
@@ -173,27 +173,27 @@ activepieces:
   # ============================================================================
   # OPTIONAL: Advanced configuration (only set if needed)
   # ============================================================================
-  
+
   # Networking & API
   clientRealIpHeader: ""              # Header to extract real client IP (e.g., X-Forwarded-For)
   apiKey: ""                          # API key for platform authentication
   internalUrl: ""                     # Internal URL for service communication
-  
+
   # Performance & Limits
   maxConcurrentJobsPerProject: ""     # Limit concurrent jobs per project
   maxFileSizeMb: ""                   # Maximum file upload size in MB
   sandboxMemoryLimit: ""              # Memory limit for sandbox execution
   sandboxPropagatedEnvVars: ""        # Environment variables to pass to sandbox
-  
+
   # Integrations
   perplexityBaseUrl: ""               # Custom Perplexity AI base URL
   featurebaseApiKey: ""               # Featurebase API key for feedback
   appWebhookSecrets: ""               # Secrets for app webhooks
-  
+
   # UI & Behavior
   showChangelog: true                 # Show changelog to users
   enableFlowOnPublish: true           # Auto-enable flows when published
-  
+
   # System Paths
   configPath: ""                      # Custom config file path
   engineExecutablePath: "dist/packages/engine/main.js"  # Engine executable path
@@ -212,6 +212,7 @@ postgresql:
   # Set to true to deploy PostgreSQL subchart (Bitnami)
   # Set to false and provide host/url to use external PostgreSQL
   enabled: true
+  enableOperator: false
   # External PostgreSQL host (required if enabled=false and using external PostgreSQL)
   host: ""
   # PostgreSQL port
@@ -322,3 +323,7 @@ queueUi:
   enabled: false                      # Set to true and configure credentials below
   username: ""
   password: ""
+
+secrets:
+  encryption-key: ""
+  jwtSecret: ""
