@@ -14,7 +14,9 @@ spec:
       owner: {{ .Values.postgresql.auth.username }}
       secret:
         name: postgresql-{{ include "activepieces.fullname" . }}-{{ .Values.postgresql.auth.username }}
-
+{{- if .Values.postgresql.primary.persistence.enabled }}
   storage:
-    size: 1Gi
+    size: {{ default "8Gi" .Values.postgresql.primary.persistence.size }}
+    storageClass: {{ .Values.postgresql.primary.persistence.storageClass }}
+{{- end }}
 {{- end }}
